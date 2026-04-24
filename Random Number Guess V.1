@@ -1,0 +1,23 @@
+#include <iostream>
+#include <random>
+using namespace std;
+
+int main()
+{
+    int randomNumber = rand() % 100 + 1;  // set ONCE before loop
+    int guess = 0;
+
+    cout << "Guess the random number 1 through 100!" << endl;
+
+    while (guess != randomNumber) {       // loop until correct
+        cin >> guess;
+
+        if (guess != randomNumber) {
+            cout << "Guess again!" << endl;
+        } else {
+            cout << "You got it right!" << endl;
+        }
+    }
+
+    return 0;
+}
