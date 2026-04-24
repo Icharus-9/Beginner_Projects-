@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+
+struct Student{
+  string name;
+  double grade;
+};
+
+Student gatherStudentData(){
+    cout << "Enter student name: ";
+    string name;
+    cin >> name;
+    cout << endl << "Enter in student grade ";
+    double grade;
+    cin >> grade;
+    Student s;
+    s.name=name;
+    s.grade=grade;
+    return s;
+}
+
+void printStudents(Student s){
+    cout << s.name << endl;
+    cout << s.grade << endl;
+    cout << "--------------------" << endl;
+}
+
+int main(){
+    vector<Student> students;
+    string Action="Yes";
+    
+    while(Action != "No"){
+        cout << "Would you like to add another student? (Yes/No) ";
+        cin >> Action;
+        if(Action == "Yes"){
+            Student s = gatherStudentData();
+            students.push_back(s);
+        }else{
+            break;
+        }
+        
+    }
+    for(Student s : students){
+        printStudents(s);
+    }
+    
+    return 0;
+}
