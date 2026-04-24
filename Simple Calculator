@@ -1,0 +1,94 @@
+#include<iostream>
+using namespace std;
+
+double addition(double a, double b){
+    return a+b;
+}
+double subtraction(double a, double b){
+    return a-b;
+}
+double multiplication(double a, double b){
+    return a*b;
+}
+double division(double a, double b){
+    
+    return a/b;
+}
+double getValidDouble(){
+    double number;
+    while(true){
+    cin >> number;
+    if(cin.fail()){
+        cin.clear();
+        cin.ignore(1000,'\n'); 
+        cout << "Invalid entry, enter in a decimal or whole number: ";
+    }else{break;}
+    }return number;
+}
+
+int main(){
+    
+    
+    int selection=0;
+    
+    while(selection != 5){
+    cout << "Enter 1 for addition, 2 for subtraction, 3 for multiplication, 4 for division and 5 to exit: ";
+    cin >> selection;
+    switch(selection){
+        case 1:{
+            cout << endl << "Enter in your first number: ";
+            double a;
+            a = getValidDouble();
+            cout << "Enter in your second number: "; 
+            double b;
+            b = getValidDouble();
+            cout << a << " plus " << b << " equals " << addition(a,b) << endl;
+            break;
+        }
+        case 2:{
+            double a;
+            cout << "Enter in your first number: ";
+            a = getValidDouble();
+            double b;
+            cout << "Enter in your second number: ";
+            b = getValidDouble();
+            cout << a << " minus " << b << " equals " << subtraction(a,b) << endl;
+            break;
+        }
+        case 3:{
+            double a;
+            cout << "Enter in your first number: ";
+            a = getValidDouble();
+            double b;
+            cout << "Enter in your second number: ";
+            b = getValidDouble();
+            cout << a << " multiplied by " << b << " equals " << multiplication(a,b)<< endl;
+            break;
+            
+        }
+        case 4:{
+            
+            double a;
+            cout << "Enter in your first number: ";
+            a = getValidDouble();
+            double b;
+            cout << "Enter in your second number: ";
+            
+            b = getValidDouble();
+            while(b==0){
+                cout << "You cannot divide by 0, try again. ";
+                b = getValidDouble();
+            }
+            cout << a << " divided by " << b << " equals " << division(a,b)<< endl;
+            break;
+        }
+        case 5:{
+            cout << "Good Bye!";
+            break;
+        }
+    }
+    
+
+    }    
+        return 0;
+    }
