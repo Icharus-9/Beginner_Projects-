@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    cout << "Test of switches" << endl;
+    cout << "Enter in '1' for Monday" << endl;
+    cout << "Enter in '2' for Tuesday" << endl;
+    cout << "Enter in '3' for Wednesday" << endl;
+    
+    int choice =0;
+    cin >> choice;
+    switch(choice){
+        case 1: {
+            cout << "You have selected Monday!" << endl;
+            break;}
+        case 2: {
+            cout << "You have selected Tuesday!" << endl; 
+            break; }
+        case 3: {
+            cout << "You have selected Wednesday!" << endl; 
+            break; }
+        default: {
+            cout << "You have made an invalid selection" << endl; 
+            break; }
+    }
+    
+    
+    
+    return 0;
+}
