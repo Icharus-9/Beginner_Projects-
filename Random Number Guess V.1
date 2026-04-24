@@ -1,23 +1,32 @@
-#include <iostream>
-#include <random>
+#include<iostream>
+#include<random>
+
 using namespace std;
 
-int main()
-{
-    int randomNumber = rand() % 20 + 1;  // set ONCE before loop
-    int guess = 0;
-
-    cout << "Guess the random number 1 through 20!" << endl;
-
-    while (guess != randomNumber) {       // loop until correct
+int main(){
+    
+    int randomNumber;
+    string keepPlaying="Yes";
+    
+    while(keepPlaying == "Yes"){
+        randomNumber = rand() % 20 +1;
+        cout << "Guess a random number between 1 and 20: ";
+        int guess=0;
+        while(guess != randomNumber){
         cin >> guess;
-
-        if (guess != randomNumber) {
-            cout << "Guess again!" << endl;
-        } else {
-            cout << "You got it right!" << endl;
+        if(guess == randomNumber){
+            cout << "You are right!" << endl;
+            cout << "Enter in 'Yes' to keep playing: ";
+            cin >> keepPlaying;
+        }else if(guess < randomNumber){
+            cout << "Your guess is too low! Guess again. ";
+        }else if(guess > randomNumber){
+            cout << "Your guess is too high! Guess again. ";
+        }
+            
         }
     }
-
-    return 0;
+    
+    
+ return 0;   
 }
