@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+int square(int a){
+    return a*a;
+}
+
+void greet(){
+    cout <<"Hello there!" << endl;
+}
+
+int main(){
+    
+    greet();
+    cout << "Enter in a number to find it's squared value: ";
+    int number1;
+    cin >> number1;
+    cout << square(number1);
+    
+    
+    
+    return 0;
+}
