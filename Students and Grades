@@ -2,7 +2,19 @@
 using namespace std;
 #include<vector>
 
-
+double getValidDouble(){
+    double y;
+    while(true){
+        cin >> y;
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(1000,'\n');
+            cout << "Number grade expected: ";
+        }else{break;
+            
+        }
+    }return y;
+}
 string getValidString(){
     string x;
     while(true){
@@ -27,10 +39,10 @@ struct Student{
 Student gatherStudentData(){
     cout << "Enter student name: ";
     string name;
-    cin >> name;
+    name = getValidString();
     cout << "Enter in student grade ";
     double grade;
-    cin >> grade;
+    grade = getValidDouble();
     Student s;
     s.name=name;
     s.grade=grade;
