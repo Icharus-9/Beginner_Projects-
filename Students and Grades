@@ -50,11 +50,45 @@ Student gatherStudentData(){
 }
 
 void printStudents(Student s){
-    cout << s.name << endl;
-    cout << s.grade << endl;
-    cout << "--------------------" << endl;
+    cout << s.name <<":" << s.grade << endl;
+    
+}
+double calcMin(vector<Student> students){
+    double min = 999;
+    for(Student s : students){
+        if(s.grade < min){
+            min = s.grade;
+        }
+    }return min;
+}
+double calcMax(vector<Student> students){
+    double max = 0;
+    for(Student s : students){
+        if(s.grade > max){
+            max = s.grade;
+        }
+    }return max;
 }
 
+double calcAverage(vector<Student> students){
+    double total = 0;
+    for(Student s : students){
+        total = total + s.grade;
+    }
+    return total / students.size();
+}
+void printStudentInfo(vector<Student> students){
+    cout << "--------------------" << endl;
+    for(Student s : students){
+        
+        printStudents(s);
+        
+    }
+    cout << "--------------------" << endl;
+    cout << "Student Average: " << calcAverage(students) << endl;
+    cout << "Highest Grade: " << calcMax(students) << endl;
+    cout << "Lowest Grade: " << calcMin(students) << endl;
+}
 int main(){
     vector<Student> students;
     string action = "Yes";
@@ -72,10 +106,6 @@ int main(){
             }
         }
     }
-
-    for(Student s : students){
-        printStudents(s);
-    }
-
+    printStudentInfo(students);
     return 0;
 }
