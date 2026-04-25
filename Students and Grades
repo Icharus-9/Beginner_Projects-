@@ -40,7 +40,7 @@ Student gatherStudentData(){
     cout << "Enter student name: ";
     string name;
     name = getValidString();
-    cout << "Enter in student grade ";
+    cout << "Enter in student grade: ";
     double grade;
     grade = getValidDouble();
     Student s;
@@ -57,22 +57,25 @@ void printStudents(Student s){
 
 int main(){
     vector<Student> students;
-    string Action="Yes";
-    
-    while(Action != "No"){
-        cout << "Would you like to add another student? (Yes/No) ";
-        cin >> Action;
-        if(Action == "Yes"){
-            Student s = gatherStudentData();
-            students.push_back(s);
-        }else{
-            break;
+    string action = "Yes";
+
+    while(action == "Yes"){
+        Student s = gatherStudentData();
+        students.push_back(s);
+
+        action = "";
+        while(action != "Yes" && action != "No"){
+            cout << "Would you like to add another student? (Yes/No): ";
+            cin >> action;
+            if(action != "Yes" && action != "No"){
+                cout << "Please enter 'Yes' or 'No' only." << endl;
+            }
         }
-        
     }
+
     for(Student s : students){
         printStudents(s);
     }
-    
+
     return 0;
 }
