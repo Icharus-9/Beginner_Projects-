@@ -1,0 +1,98 @@
+#include<iostream>
+using namespace std;
+#include<iomanip>
+
+
+
+class BankAccount {
+    private: 
+    string ownerName;
+    double balance;
+
+    public:
+    BankAccount(string name){
+        ownerName = name;
+        balance = 0.0;
+    }
+
+    void deposit(double amount){
+        balance = balance + amount;
+    }
+    void withdraw(double amount){
+        if (amount > balance){
+            cout << "Insufficient funds" << endl;
+        }else{
+        balance = balance - amount;
+    }
+    }
+    void printBalance(){
+        cout << ownerName << endl;
+        cout << "Your balance is $" << fixed << setprecision(2) << balance << endl;
+    }
+};
+    
+double getValidDouble(){
+    double money;
+    cin >> money;
+    while(cin.fail()){
+        cin.clear();
+        cin.ignore(1000, '\n');
+        cout << "Enter in a valid dollar amount: ";
+        cin >> money;
+    }return money; 
+    }
+
+
+
+    
+int main(){
+cout << "Welcome to City Star Bank" << endl;
+cout << "Enter your name: "; 
+string name;
+cin >> name;
+BankAccount account(name);
+
+int selection=0;
+while(selection !=4 ){
+    cout << "Make a selection" << endl;
+    cout << "1. Deposit" << endl;
+    cout << "2. Withdraw" << endl;
+    cout << "3. Check Balance" << endl;
+    cout << "4. Exit" << endl;
+    cin >> selection;
+    switch(selection){
+    case 1:{
+        cout << "Enter you deposit amount" << endl;
+        cout << "$";
+        double amount;
+        amount = getValidDouble();
+        account.deposit(amount);
+        account.printBalance();
+        
+        break;
+    }
+    case 2:{
+        cout << "Enter the amount to withdraw: " << endl;
+        cout << "$";
+        double amount;
+        amount = getValidDouble();
+        account.withdraw(amount);
+        account.printBalance();
+        break;
+    }
+    case 3:{
+        account.printBalance();
+        break;
+    }
+    case 4:{
+        cout << "Thank you, come back soon!" << endl;
+        break;
+    };
+    default:{
+    cout << "Invalid selection! Enter 1-4." << endl;
+    break;
+}
+}
+    
+}return 0;    
+}
