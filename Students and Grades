@@ -2,6 +2,23 @@
 using namespace std;
 #include<vector>
 
+
+string getValidString(){
+    string x;
+    while(true){
+        cin >> x;
+        if(cin.fail()){
+        cin.clear();
+        cin.ignore(1000,'\n');
+        cout << "Invalid entry, names expected: "; 
+    } else{
+        break;
+    }
+        
+    }
+    return x;
+}
+
 struct Student{
   string name;
   double grade;
@@ -11,7 +28,7 @@ Student gatherStudentData(){
     cout << "Enter student name: ";
     string name;
     cin >> name;
-    cout << endl << "Enter in student grade ";
+    cout << "Enter in student grade ";
     double grade;
     cin >> grade;
     Student s;
