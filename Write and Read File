@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+#include<fstream>
+
+
+
+
+int main(){
+    
+    ofstream myFile("test.txt");
+    myFile << "Hello World!";
+    myFile << endl << "Line Test 2";
+    myFile << endl << "Line Test 3";
+    myFile.close();
+    
+    
+    ifstream readFile("test.txt");
+	string line;
+	while(getline(readFile, line)){
+		cout << line << endl;
+	}
+    readFile.close();
+    
+    
+    
+    return 0;
+}
