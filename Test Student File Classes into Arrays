@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+#include<fstream>
+
+class Student{
+    private:
+    string name;
+    int grade;
+    
+    public:
+    Student(string na, int gr){
+        name = na;
+        grade = gr;
+        }
+    void printInfo(){
+        cout << "Name: " << name << "\t" << "Grade: " << grade << endl;
+    }
+    string getName(){
+        return name;
+    }
+    int getGrade(){
+        return grade;
+    }
+};
+
+
+
+int main(){
+    
+Student students[3] = {Student("John", 89), Student("Sarah", 96), Student("Ben", 78)};
+
+ofstream myFile("test.txt");
+for(int i=0;i<3;i++){
+    myFile << students[i].getName() <<" "<< students[i].getGrade() << endl;
+}
+    
+myFile.close();
+
+string currentLine;
+ifstream readFile("test.txt");
+while(getline(readFile, currentLine)){
+    cout << currentLine << endl;
+}
+    
+    
+    
+    
+    
+    return 0;
+}
