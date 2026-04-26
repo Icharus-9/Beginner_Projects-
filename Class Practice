@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+class Animal{
+    private:
+    string name;
+    string sound;
+    
+    public:
+    Animal(string na, string so){
+        name = na;
+        sound = so;
+    }
+    void makeSound(){
+     cout << name << " says " << sound << endl;
+    }
+};
+
+
+
+int main(){
+    Animal myDog("Rex", "Woof!");
+    myDog.makeSound();
+    
+    
+    return 0;
+}
