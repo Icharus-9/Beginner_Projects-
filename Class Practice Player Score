@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+
+class Player{
+    private:
+    string name;
+    int score;
+    
+    public:
+    Player(string na, int sco){
+        name = na;
+        score = sco;
+    }
+    void printPlayerInfo(){
+        cout << "Name: " << name << "\t" << "Score: " << score << endl; 
+    }
+    void addScore(int sco){
+	score = score + sco;
+	}
+    
+    
+    
+    
+};
+
+
+
+
+
+int main(){
+    
+    Player John("John", 100);
+	John.addScore(50);
+	
+	John.printPlayerInfo();
+    
+    
+    
+    
+    
+    
+    
+    
+    return 0;
+}
