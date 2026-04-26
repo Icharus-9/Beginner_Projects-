@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+
+class Movie{
+    private:
+    string title;
+    int year;
+    double rating;
+    
+    
+    public:
+    Movie(string ti, int ye, double ra){
+        title = ti;
+        year = ye;
+        rating = ra;
+    }
+    void printInfo(){
+        cout << "Title: " << title << "\t" << "Year: " << year << "\t" << "Rating: " << rating << endl;
+    }
+    void setTitle(string til){
+        title = til;
+    }
+    void setYear(int ye){
+        year = ye;
+    }
+    void setRating(double ra){
+        rating = ra;
+    }
+    string getTitle(){
+        return title;
+    }
+    int getYear(){
+        return year;
+    }
+    double getRating(){
+        return rating;
+    }
+    
+};
+
+
+
+
+int main(){
+    
+    Movie CaptainHook("CaptainHook", 1993, 4.85);
+    CaptainHook.printInfo();
+    
+    
+    
+    
+    return 0;
+}
