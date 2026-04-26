@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+
+    int scores[5] = {56,42,37,22,51};
+    double avg;
+    avg=0;
+    int sizeR;
+    sizeR = 0;
+    
+    
+    for(int i=0; i<5; i++){
+        avg = avg + scores[i];
+        sizeR = sizeR + 1;
+        
+        
+    }
+        
+        avg = avg / sizeR;
+        cout << avg;
+    return 0;
+}
